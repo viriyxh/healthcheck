@@ -1,12 +1,14 @@
+@import url("https://fonts.googleapis.com/css2?family=Krub:ital,wght@0,600;1,400&display=swap");
 :root {
-  --color-pink: pink;
+  --color-pink: #F59689;
+  --color-blue: #1D4C9E;
+  --color-green: #17A589;
 }
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: "Krub", Helvetica Neue, sans-serif;
 }
 a {
   color: inherit;
@@ -18,7 +20,7 @@ a {
 input:not(input[type="radio"]),
 input:not(input[type="radio"]):focus {
   width: 100%;
-  border: 2px solid;
+  border: 3px solid;
   border-radius: 2rem;
   padding: 0 1rem;
   outline: none;
@@ -33,14 +35,14 @@ input[type="radio"] {
 button {
   border: 0px none;
   border-radius: 1rem;
-  background-color: pink;
+  background-color: var(--color-pink);
   color: #ffffff;
   padding: 0.5rem 3rem;
   font-size: 1.25rem;
 }
 .card {
   background-color: beige;
-  border: 2px solid;
+  border: 3px solid;
   border-radius: 2rem;
   padding: 1rem;
 }
