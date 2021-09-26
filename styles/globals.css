@@ -5,12 +5,36 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
-
 a {
   color: inherit;
   text-decoration: none;
 }
-
 * {
   box-sizing: border-box;
+}
+input:not(input[type="radio"]),
+input:not(input[type="radio"]):focus {
+  width: 100%;
+  border: 2px solid pink;
+  border-radius: 2rem;
+  padding: 0 1rem;
+  outline: none;
+}
+input[type="radio"] {
+  margin-right: 0.5rem;
+}
+.cardWrapper {
+  width: 100%;
+  max-width: 720px;
+}
+.cardWrapper button {
+  border: 0px none;
+  border-radius: 1rem;
+  background-color: pink;
+  color: #ffffff;
+  padding: 0.5rem 3rem;
+  font-size: 1.25rem;
+}
+.card {
+  padding: 1rem;
 }
