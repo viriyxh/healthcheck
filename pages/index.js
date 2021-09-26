@@ -1,5 +1,5 @@
 import { useRouter } from "next/router"
-import { useState, useEffect } from "react"
+import useTranslation from "next-translate/useTranslation"
 import Header from "../components/Header"
 import Footer from "../components/Footer"
 import Container from "../components/Container"
@@ -13,16 +13,7 @@ import Button from "../components/Button"
 const App = ({ page, updatePage, formData, updateFormData }) => {
   const router = useRouter()
 
-  let lang = {
-    name: router.locale === "th" ? "ชื่อ" : "Name",
-    surname: router.locale === "th" ? "นามสกุล" : "Surname",
-    sex: router.locale === "th" ? "เพศสภาพ" : "Sex",
-    male: router.locale === "th" ? "ชาย" : "Male",
-    female: router.locale === "th" ? "หญิง" : "Female",
-    save: router.locale === "th" ? "บันทึก" : "Save",
-    next: router.locale === "th" ? "ต่อไป" : "Next",
-    success: router.locale === "th" ? "เสร็จสิ้น" : "Done",
-  }
+  let { t } = useTranslation("common")
 
   console.log(formData)
 
@@ -33,43 +24,122 @@ const App = ({ page, updatePage, formData, updateFormData }) => {
           <Header />
           <Layout>
             <div className="cardWrapper">
-              <Card>
+              <Card color="var(--color-pink)">
                 <Form>
                   <Input
-                    label={lang.name}
+                    label={t("name")}
                     type="text"
                     id="name"
+                    color="var(--color-pink)"
                     onChangeHandler={(value) => {
                       updateFormData({ name: value })
                     }}
                   />
-                  <Input
-                    label={lang.surname}
-                    type="text"
-                    id="surname"
-                    onChangeHandler={(value) => {
-                      updateFormData({ surname: value })
-                    }}
-                  />
                   <InputRadio
-                    label={lang.sex}
+                    label={t("sex")}
                     items={[
-                      { id: "sex1", label: lang.male, value: "male" },
-                      { id: "sex2", label: lang.female, value: "female" },
+                      { id: "sex1", label: t("sex_male"), value: "male" },
+                      { id: "sex2", label: t("sex_female"), value: "female" },
                     ]}
                     name="sex"
                     onChangeHandler={(value) => {
                       updateFormData({ sex: value })
                     }}
                   />
+                  <Input
+                    label={t("age")}
+                    type="number"
+                    id="age"
+                    color="var(--color-pink)"
+                    onChangeHandler={(value) => {
+                      updateFormData({ age: value })
+                    }}
+                  />
+                  <InputRadio
+                    label={t("congenital")}
+                    items={[
+                      {
+                        id: "congenital1",
+                        label: t("congenital_opt1"),
+                        value: "โรคอ้วนลงพุง",
+                      },
+                      {
+                        id: "congenital2",
+                        label: t("congenital_opt2"),
+                        value: "โรคเครียด",
+                      },
+                      {
+                        id: "congenital3",
+                        label: t("congenital_opt3"),
+                        value: "โรคความดัน",
+                      },
+                      {
+                        id: "congenital4",
+                        label: t("congenital_opt4"),
+                        value: "โรคเบาหวาน",
+                      },
+                      {
+                        id: "congenital5",
+                        label: t("congenital_opt5"),
+                        value: "โรคหลอดเลือดสมองและหัวใจ",
+                      },
+                    ]}
+                    name="congenital"
+                    onChangeHandler={(value) => {
+                      updateFormData({ congenital: value })
+                    }}
+                  />
+                  <Input
+                    label={t("exercise")}
+                    type="text"
+                    id="exercise"
+                    color="var(--color-pink)"
+                    onChangeHandler={(value) => {
+                      updateFormData({ exercise: value })
+                    }}
+                  />
+                  <InputRadio
+                    label=""
+                    items={[
+                      {
+                        id: "symptom1",
+                        label: t("smoking"),
+                        value: "สูบบุหรี่",
+                      },
+                      {
+                        id: "symptom2",
+                        label: t("alcohol_abuse"),
+                        value: "ดื่มสุรา",
+                      },
+                    ]}
+                    name="symptom"
+                    onChangeHandler={(value) => {
+                      updateFormData({ symptom: value })
+                    }}
+                  />
                 </Form>
               </Card>
               <Button
+                color="var(--color-pink)"
                 onClick={() => {
                   updatePage(page + 1)
                 }}
-                message={lang.save}
+                message={t("save")}
               />
+            </div>
+          </Layout>
+          <Footer />
+        </Container>
+      )
+    case 2:
+      return (
+        <Container>
+          <Header />
+          <Layout>
+            <div className="cardWrapper">
+              <Card>
+                <Form></Form>
+              </Card>
             </div>
           </Layout>
           <Footer />
@@ -80,23 +150,31 @@ const App = ({ page, updatePage, formData, updateFormData }) => {
         <Container>
           <Header />
           <Layout>
-            <Card>
-              <button
-                onClick={() => {
-                  router.push("/", "/", { locale: "th" })
-                  updatePage(1)
-                }}
-              >
-                ภาษาไทย
-              </button>
-              <button
-                onClick={() => {
-                  router.push("/", "/", { locale: "en" })
-                  updatePage(1)
-                }}
-              >
-                English
-              </button>
+            <Card color="var(--color-pink)">
+              <div className="pb-3">
+                <button
+                  className="w-100"
+                  color="var(--color-pink)"
+                  onClick={() => {
+                    router.push("/", "/", { locale: "th" })
+                    updatePage(1)
+                  }}
+                >
+                  ภาษาไทย
+                </button>
+              </div>
+              <div>
+                <button
+                  className="w-100"
+                  color="var(--color-pink)"
+                  onClick={() => {
+                    router.push("/", "/", { locale: "en" })
+                    updatePage(1)
+                  }}
+                >
+                  English
+                </button>
+              </div>
             </Card>
           </Layout>
           <Footer />

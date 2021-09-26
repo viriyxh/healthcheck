@@ -1,0 +1,21 @@
+{
+  "save": "Save",
+  "next": "Next",
+  "success": "Yes",
+  "done": "Done",
+  "name": "Name",
+  "sex": "Sex",
+  "sex_male": "Male",
+  "sex_female": "Female",
+  "age": "Age",
+  "age_years": "years",
+  "congenital": "Congenital Disease",
+  "congenital_opt1": "โรคอ้วนลงพุง",
+  "congenital_opt2": "โรคเครียด",
+  "congenital_opt3": "โรคความดัน",
+  "congenital_opt4": "โรคเบาหวาน",
+  "congenital_opt5": "โรคหลอดเลือดสมองและหัวใจ",
+  "exercise": "Exercise",
+  "smoking": "Smoking",
+  "alcohol_abuse": "Alcohol abuse"
+}

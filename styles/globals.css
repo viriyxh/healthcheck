@@ -1,3 +1,6 @@
+:root {
+  --color-pink: pink;
+}
 html,
 body {
   padding: 0;
@@ -15,7 +18,7 @@ a {
 input:not(input[type="radio"]),
 input:not(input[type="radio"]):focus {
   width: 100%;
-  border: 2px solid pink;
+  border: 2px solid;
   border-radius: 2rem;
   padding: 0 1rem;
   outline: none;
@@ -27,7 +30,7 @@ input[type="radio"] {
   width: 100%;
   max-width: 720px;
 }
-.cardWrapper button {
+button {
   border: 0px none;
   border-radius: 1rem;
   background-color: pink;
@@ -36,5 +39,8 @@ input[type="radio"] {
   font-size: 1.25rem;
 }
 .card {
+  background-color: beige;
+  border: 2px solid;
+  border-radius: 2rem;
   padding: 1rem;
 }

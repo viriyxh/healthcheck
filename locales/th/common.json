@@ -1,0 +1,20 @@
+{
+  "save": "บันทึก",
+  "next": "ต่อไป",
+  "success": "เสร็จสิ้น",
+  "name": "ชื่อ",
+  "sex": "เพศสภาพ",
+  "sex_male": "ชาย",
+  "sex_female": "หญิง",
+  "age": "อายุ",
+  "age_years": "ปี",
+  "congenital": "โรคประจำตัว",
+  "congenital_opt1": "โรคอ้วนลงพุง",
+  "congenital_opt2": "โรคเครียด",
+  "congenital_opt3": "โรคความดัน",
+  "congenital_opt4": "โรคเบาหวาน",
+  "congenital_opt5": "โรคหลอดเลือดสมองและหัวใจ",
+  "exercise": "ออกกำลังกาย",
+  "smoking": "สูบบุหรี่",
+  "alcohol_abuse": "ดื่มสุรา"
+}
