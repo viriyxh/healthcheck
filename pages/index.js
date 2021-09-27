@@ -104,7 +104,7 @@ const App = ({ page, updatePage, formData, updateFormData }) => {
                       }}
                     />
                     <Input
-                      label={t("exercise")}
+                      label={t("exercises")}
                       type="text"
                       id="exercise"
                       color="var(--color-pink)"
@@ -113,7 +113,7 @@ const App = ({ page, updatePage, formData, updateFormData }) => {
                       }}
                     />
                     <InputRadio
-                      label=""
+                      label={t("habits")}
                       items={[
                         {
                           id: "symptom1",
@@ -137,7 +137,19 @@ const App = ({ page, updatePage, formData, updateFormData }) => {
               <Button
                 color="var(--color-pink)"
                 onClick={() => {
-                  updatePage(page + 1)
+                  if (
+                    typeof formData.name !== "undefined" &&
+                    typeof formData.sex !== "undefined" &&
+                    typeof formData.age !== "undefined" &&
+                    typeof formData.congenital !== "undefined" &&
+                    typeof formData.exercise !== "undefined" &&
+                    typeof formData.symptom !== "undefined" &&
+                    !isNaN(formData.age)
+                  ) {
+                    updatePage(page + 1)
+                  } else {
+                    alert(t("form_invalid"))
+                  }
                 }}
                 message={t("save")}
               />
@@ -162,18 +174,16 @@ const App = ({ page, updatePage, formData, updateFormData }) => {
                     <h1 style={{ color: "var(--color-dark-blue)" }}>
                       HEALTH CHECK UP
                     </h1>
-                    <p>
-                      สำรวจสุขภาวะเบื้องต้นของคุณ
-                      <br />“<br />
-                      ร่างกายของแต่ละคน
-                      <br />
-                      มีความเฉพาะไม่เหมือนกัน
-                      <br />
-                      ยิ่งเราเข้าใจร่างกายเท่าไร
-                      <br />
-                      เราก็จะดูแลมันได้ดี
-                      <br />”<br />
-                      15 นาที กับการ Check up สุขภาวะของคุณ กับ 3 Check list
+                    <p className="mx-auto" style={{ maxWidth: "240px" }}>
+                      {t("page2_m1")}
+                    </p>
+                    <div className="py-2 display-1">“</div>
+                    <p className="mx-auto" style={{ maxWidth: "240px" }}>
+                      {t("page2_m2")}
+                    </p>
+                    <div className="py-3 display-1">”</div>
+                    <p className="mx-auto m-0" style={{ maxWidth: "260px" }}>
+                      {t("page2_m3")}
                     </p>
                   </div>
                 </Form>
@@ -202,10 +212,8 @@ const App = ({ page, updatePage, formData, updateFormData }) => {
                 <Form>
                   <div className="text-center">
                     <h1 style={{ color: "var(--color-dark-blue)" }}>HCU MAP</h1>
-                    <p>
-                      ดูสัญลักษณ์ Check point บนพื้น
-                      <br />
-                      ตอนนี้คุณอยู่บนพื้นวงกลมสีน้ำเงินหรือไม่?
+                    <p className="mx-auto" style={{ maxWidth: "240px" }}>
+                      {t("page3_m1")}
                     </p>
                     <div className="position-relative">
                       <Image
@@ -244,7 +252,9 @@ const App = ({ page, updatePage, formData, updateFormData }) => {
                     <h1 style={{ color: "var(--color-dark-blue)" }}>
                       HEALTH (สุขภาวะ)
                     </h1>
-                    <p>องค์ประกอบของสุขภาพที่ดี ยึดหลัก 3อ. คือ</p>
+                    <p className="mx-auto" style={{ maxWidth: "200px" }}>
+                      {t("3or")}
+                    </p>
                     <div className="position-relative">
                       <Image
                         src="/embify.png"
@@ -280,10 +290,8 @@ const App = ({ page, updatePage, formData, updateFormData }) => {
                 <Form>
                   <div className="text-center">
                     <h1 style={{ color: "var(--color-dark-blue)" }}>HCU MAP</h1>
-                    <p>
-                      ดูสัญลักษณ์ Check point บนพื้น
-                      <br />
-                      ตอนนี้คุณอยู่ที่สัญลักษณ์สีเขียวเข้มหรือไม่?
+                    <p className="mx-auto" style={{ maxWidth: "240px" }}>
+                      {t("page5_m1")}
                     </p>
                     <div className="position-relative">
                       <Image
@@ -319,8 +327,14 @@ const App = ({ page, updatePage, formData, updateFormData }) => {
               <Card color="var(--color-dark-blue)">
                 <Form>
                   <div className="text-center">
-                    <h1 style={{ color: "var(--color-dark-green)" }}>
-                      ทดสอบร่างกายผ่านเครื่องเล่น 5-Minute Body Test
+                    <h1
+                      className="mx-auto"
+                      style={{
+                        color: "var(--color-dark-green)",
+                        maxWidth: "200px",
+                      }}
+                    >
+                      {t("page6_m1")}
                     </h1>
                     <div className="position-relative">
                       <Image
@@ -360,11 +374,11 @@ const App = ({ page, updatePage, formData, updateFormData }) => {
                       className="text-center"
                       style={{ color: "var(--color-dark-green)" }}
                     >
-                      ข้อมูลที่ได้
+                      {t("data_you_got")}
                     </h1>
                     <div>
                       <Input
-                        label="สมรรถภาพหัวใจและหลอดเลือด"
+                        label={t("page7_opt1")}
                         type="number"
                         id="opt1"
                         color="var(--color-dark-green)"
@@ -373,7 +387,7 @@ const App = ({ page, updatePage, formData, updateFormData }) => {
                         }}
                       />
                       <Input
-                        label="สมรรถภาพกล้ามเนื้อ"
+                        label={t("page7_opt2")}
                         type="number"
                         id="opt2"
                         color="var(--color-dark-green)"
@@ -386,7 +400,7 @@ const App = ({ page, updatePage, formData, updateFormData }) => {
                         items={[
                           {
                             id: "opt3",
-                            label: "ความหย่อนตัว",
+                            label: t("page7_opt3"),
                             value: "pass",
                           },
                         ]}
@@ -398,7 +412,7 @@ const App = ({ page, updatePage, formData, updateFormData }) => {
                       <InputRadio
                         label
                         items={[
-                          { id: "opt4", label: "ความทรงตัว", value: "pass" },
+                          { id: "opt4", label: t("page7_opt4"), value: "pass" },
                         ]}
                         name="opt4"
                         onChangeHandler={(value) => {
@@ -410,7 +424,7 @@ const App = ({ page, updatePage, formData, updateFormData }) => {
                         items={[
                           {
                             id: "opt5",
-                            label: "ประเมินท่าทาง",
+                            label: t("page7_opt5"),
                             value: "pass",
                           },
                         ]}
@@ -425,7 +439,21 @@ const App = ({ page, updatePage, formData, updateFormData }) => {
               </Card>
               <Button
                 color="var(--color-dark-blue)"
-                onClick={() => updatePage(page + 1)}
+                onClick={() => {
+                  if (
+                    typeof formData.section1_opt1 !== "undefined" &&
+                    typeof formData.section1_opt2 !== "undefined" &&
+                    typeof formData.section1_opt3 !== "undefined" &&
+                    typeof formData.section1_opt4 !== "undefined" &&
+                    typeof formData.section1_opt5 !== "undefined" &&
+                    !isNaN(formData.section1_opt1) &&
+                    !isNaN(formData.section1_opt2)
+                  ) {
+                    updatePage(page + 1)
+                  } else {
+                    alert(t("form_invalid"))
+                  }
+                }}
                 message={t("next")}
               />
             </div>
@@ -449,8 +477,10 @@ const App = ({ page, updatePage, formData, updateFormData }) => {
                     className="text-center"
                     style={{ color: "var(--color-dark-green)" }}
                   >
-                    <h1 className="pb-4">ข้อมูลที่ได้</h1>
-                    <h1>สุขภาพร่างกายของคุณแข็งแรงดี คุณออกกำลังกายสม่ำเสมอ</h1>
+                    <h1 className="pb-4">{t("data_you_got")}</h1>
+                    <h1 className="mx-auto" style={{ maxWidth: "220px" }}>
+                      {t("page8_m1")}
+                    </h1>
                   </div>
                 </Form>
               </Card>
@@ -477,8 +507,14 @@ const App = ({ page, updatePage, formData, updateFormData }) => {
               <Card color="var(--color-dark-blue)">
                 <Form>
                   <div className="text-center">
-                    <h1 style={{ color: "var(--color-dark-green)" }}>
-                      อ่านข้อแนะนำ และข้อมูลเพิ่มเติมได้ที่บริเวณนี้
+                    <h1
+                      className="mx-auto"
+                      style={{
+                        color: "var(--color-dark-green)",
+                        maxWidth: "220px",
+                      }}
+                    >
+                      {t("suggestion")}
                     </h1>
                     <div className="position-relative">
                       <Image
@@ -517,7 +553,9 @@ const App = ({ page, updatePage, formData, updateFormData }) => {
                     <h1 style={{ color: "var(--color-dark-blue)" }}>
                       HEALTH (สุขภาวะ)
                     </h1>
-                    <p>องค์ประกอบของสุขภาพที่ดี ยึดหลัก 3อ. คือ</p>
+                    <p className="mx-auto" style={{ maxWidth: "200px" }}>
+                      {t("3or")}
+                    </p>
                     <div className="position-relative">
                       <Image
                         src="/embify.png"
@@ -553,9 +591,8 @@ const App = ({ page, updatePage, formData, updateFormData }) => {
                 <Form>
                   <div className="text-center">
                     <h1 style={{ color: "var(--color-green)" }}>HCU MAP</h1>
-                    <p>
-                      ดูสัญลักษณ์ Check point บนพื้น
-                      ตอนนี้คุณอยู่ที่สัญลักษณ์สีเขียวอ่อนหรือไม่
+                    <p className="mx-auto" style={{ maxWidth: "260px" }}>
+                      {t("page11_m1")}
                     </p>
                     <div className="position-relative">
                       <Image
@@ -592,12 +629,14 @@ const App = ({ page, updatePage, formData, updateFormData }) => {
                 <Form>
                   <div className="text-center">
                     <h1
-                      className="pb-4"
-                      style={{ color: "var(--color-green)" }}
+                      className="mx-auto pb-4"
+                      style={{ color: "var(--color-green)", maxWidth: "260px" }}
                     >
-                      ทดสอบพฤติกรรมการกินอาหาร ผ่านการตอบคำถาม 15 ข้อ
+                      {t("page12_m1")}
                     </h1>
-                    <p>ขอให้ตอบตามพฤติกรรมจริงของท่านในรอบ 3 เดือนที่ผ่านมา</p>
+                    <p className="mx-auto" style={{ maxWidth: "220px" }}>
+                      {t("page12_m2")}
+                    </p>
                   </div>
                 </Form>
               </Card>
@@ -627,7 +666,7 @@ const App = ({ page, updatePage, formData, updateFormData }) => {
                     color="var(--color-white)"
                     bgColor="var(--color-green)"
                     list={1}
-                    message="คุณมักจะเติมน้ำตาลเพิ่มลงในอาหาร"
+                    message={t("section2_q1")}
                   />
                   <ChoiceSelectWrapper>
                     <ChoiceSelect
@@ -636,7 +675,7 @@ const App = ({ page, updatePage, formData, updateFormData }) => {
                         updateFormData({ section2_q1: "ทำเป็นประจำ" })
                         updatePage(page + 1)
                       }}
-                      message="ทำเป็นประจำ"
+                      message={t("section2_q1a1")}
                     />
                     <ChoiceSelect
                       color="var(--color-green)"
@@ -644,7 +683,7 @@ const App = ({ page, updatePage, formData, updateFormData }) => {
                         updateFormData({ section2_q1: "ทำบ้าง เป็นบางครั้ง" })
                         updatePage(page + 1)
                       }}
-                      message="ทำบ้าง เป็นบางครั้ง"
+                      message={t("section2_q1a2")}
                     />
                     <ChoiceSelect
                       color="var(--color-green)"
@@ -652,7 +691,7 @@ const App = ({ page, updatePage, formData, updateFormData }) => {
                         updateFormData({ section2_q1: "แทบไม่ทำ/ไม่ทำเลย" })
                         updatePage(page + 1)
                       }}
-                      message="แทบไม่ทำ/ไม่ทำเลย"
+                      message={t("section2_q1a3")}
                     />
                   </ChoiceSelectWrapper>
                 </Form>
@@ -675,8 +714,11 @@ const App = ({ page, updatePage, formData, updateFormData }) => {
               <Card color="var(--color-green)">
                 <Form>
                   <div className="text-center">
-                    <h1 style={{ color: "var(--color-green)" }}>
-                      พฤติกรรมการกินอาหารของคุณคือ
+                    <h1
+                      className="mx-auto"
+                      style={{ color: "var(--color-green)", maxWidth: "220px" }}
+                    >
+                      {t("page14_m1")}
                     </h1>
                   </div>
                 </Form>
@@ -704,8 +746,15 @@ const App = ({ page, updatePage, formData, updateFormData }) => {
               <Card color="var(--color-green)">
                 <Form>
                   <div className="text-center">
-                    <h1 style={{ color: "var(--color-green)" }}>HCU MAP</h1>
-                    <p>อ่านข้อแนะนำ และข้อมูลเพิ่มเติมได้ที่บริเวณนี้</p>
+                    <h1
+                      className="mx-auto"
+                      style={{
+                        color: "var(--color-green)",
+                        maxWidth: "220px",
+                      }}
+                    >
+                      {t("suggestion")}
+                    </h1>
                     <div className="position-relative">
                       <Image
                         src="/embify.png"
@@ -720,7 +769,7 @@ const App = ({ page, updatePage, formData, updateFormData }) => {
               <Button
                 color="var(--color-green)"
                 onClick={() => updatePage(page + 1)}
-                message={t("success")}
+                message={t("done")}
               />
             </div>
           </Layout>
@@ -743,7 +792,9 @@ const App = ({ page, updatePage, formData, updateFormData }) => {
                     <h1 style={{ color: "var(--color-dark-blue)" }}>
                       HEALTH (สุขภาวะ)
                     </h1>
-                    <p>องค์ประกอบของสุขภาพที่ดี ยึดหลัก 3อ. คือ</p>
+                    <p className="mx-auto" style={{ maxWidth: "200px" }}>
+                      {t("3or")}
+                    </p>
                     <div className="position-relative">
                       <Image
                         src="/embify.png"
@@ -779,9 +830,8 @@ const App = ({ page, updatePage, formData, updateFormData }) => {
                 <Form>
                   <div className="text-center">
                     <h1 style={{ color: "var(--color-blue)" }}>HCU MAP</h1>
-                    <p>
-                      ดูสัญลักษณ์ Check point บนพื้น
-                      ตอนนี้คุณอยู่ที่สัญลักษณ์สีเขียวอ่อนหรือไม่
+                    <p className="mx-auto" style={{ maxWidth: "260px" }}>
+                      {t("page17_m1")}
                     </p>
                     <div className="position-relative">
                       <Image
@@ -817,12 +867,14 @@ const App = ({ page, updatePage, formData, updateFormData }) => {
               <Card color="var(--color-blue)">
                 <Form>
                   <div className="text-center">
-                    <h1 className="pb-4" style={{ color: "var(--color-blue)" }}>
-                      วัดระดับความเครียดของคุณ ผ่านการตอบคำถาม 5 ข้อ
+                    <h1
+                      className="mx-auto pb-4"
+                      style={{ color: "var(--color-blue)", maxWidth: "260px" }}
+                    >
+                      {t("page18_m1")}
                     </h1>
-                    <p>
-                      ขอให้ตอบตรงกับความรู้สึกและตามพฤติกรรมจริงๆ ของท่านในรอบ 3
-                      เดือนที่ผ่านมา
+                    <p className="mx-auto" style={{ maxWidth: "200px" }}>
+                      {t("page18_m2")}
                     </p>
                   </div>
                 </Form>
@@ -853,7 +905,7 @@ const App = ({ page, updatePage, formData, updateFormData }) => {
                     color="var(--color-white)"
                     bgColor="var(--color-blue)"
                     list={1}
-                    message="คุณมักจะเติมน้ำตาลเพิ่มลงในอาหาร"
+                    message={t("section3_q1")}
                   />
                   <ChoiceSelectWrapper>
                     <ChoiceSelect
@@ -862,17 +914,17 @@ const App = ({ page, updatePage, formData, updateFormData }) => {
                         updateFormData({ section3_q1: "ไม่มีอาการ" })
                         updatePage(page + 1)
                       }}
-                      message="ไม่มีอาการ"
+                      message={t("section3_q1a1")}
                     />
                     <ChoiceSelect
                       color="var(--color-blue)"
                       onClick={() => {
                         updateFormData({
-                          section3_q1: "มีอาการมากกว่า 1 ครั้งแต่ไม่บ่อย",
+                          section3_q1: "มีอาการแต่ไม่บ่อย",
                         })
                         updatePage(page + 1)
                       }}
-                      message="มีอาการมากกว่า 1 ครั้งแต่ไม่บ่อย"
+                      message={t("section3_q1a2")}
                     />
                     <ChoiceSelect
                       color="var(--color-blue)"
@@ -882,7 +934,7 @@ const App = ({ page, updatePage, formData, updateFormData }) => {
                         })
                         updatePage(page + 1)
                       }}
-                      message="มีอาการเกิดขึ้นเกือบทุกวัน"
+                      message={t("section3_q1a3")}
                     />
                     <ChoiceSelect
                       color="var(--color-blue)"
@@ -890,7 +942,7 @@ const App = ({ page, updatePage, formData, updateFormData }) => {
                         updateFormData({ section3_q1: "มีอาการเกิดขึ้นทุกวัน" })
                         updatePage(page + 1)
                       }}
-                      message="มีอาการเกิดขึ้นทุกวัน"
+                      message={t("section3_q1a4")}
                     />
                   </ChoiceSelectWrapper>
                 </Form>
@@ -913,8 +965,11 @@ const App = ({ page, updatePage, formData, updateFormData }) => {
               <Card color="var(--color-blue)">
                 <Form>
                   <div className="text-center">
-                    <h1 style={{ color: "var(--color-blue)" }}>
-                      ระดับความเครียดของคุณคือ
+                    <h1
+                      className="mx-auto"
+                      style={{ color: "var(--color-blue)", maxWidth: "240px" }}
+                    >
+                      {t("page20_m1")}
                     </h1>
                     <div className="position-relative">
                       <Image
@@ -924,12 +979,11 @@ const App = ({ page, updatePage, formData, updateFormData }) => {
                         height={100}
                       />
                       <h2 style={{ color: "var(--color-green)" }}>
-                        ระดับที่ 1 หัวใจสีเขียว
+                        {t("page20_m2")}
                       </h2>
-                      <p>ความเครียดระดับต่ำ</p>
-                      <p>
-                        คุณเป็นคนคิดบวก ไม่เครียด แม้มีความเครียด
-                        แต่ยังพอรับมือได้ด้วยตัวเอง (ปกติ)
+                      <p>{t("page20_m3")}</p>
+                      <p className="mx-auto" style={{ maxWidth: "200px" }}>
+                        {t("page20_m4")}
                       </p>
                     </div>
                   </div>
@@ -958,8 +1012,15 @@ const App = ({ page, updatePage, formData, updateFormData }) => {
               <Card color="var(--color-blue)">
                 <Form>
                   <div className="text-center">
-                    <h1 style={{ color: "var(--color-blue)" }}>HCU MAP</h1>
-                    <p>อ่านข้อแนะนำ และข้อมูลเพิ่มเติมได้ที่บริเวณนี้</p>
+                    <h1
+                      className="mx-auto"
+                      style={{
+                        color: "var(--color-blue)",
+                        maxWidth: "220px",
+                      }}
+                    >
+                      {t("suggestion")}
+                    </h1>
                     <div className="position-relative">
                       <Image
                         src="/embify.png"
@@ -974,7 +1035,7 @@ const App = ({ page, updatePage, formData, updateFormData }) => {
               <Button
                 color="var(--color-blue)"
                 onClick={() => updatePage(page + 1)}
-                message={t("success")}
+                message={t("done")}
               />
             </div>
           </Layout>
@@ -997,7 +1058,9 @@ const App = ({ page, updatePage, formData, updateFormData }) => {
                     <h1 style={{ color: "var(--color-dark-blue)" }}>
                       HEALTH (สุขภาวะ)
                     </h1>
-                    <p>องค์ประกอบของสุขภาพที่ดี ยึดหลัก 3อ. คือ</p>
+                    <p className="mx-auto" style={{ maxWidth: "200px" }}>
+                      {t("3or")}
+                    </p>
                     <div className="position-relative">
                       <Image
                         src="/embify.png"
@@ -1012,7 +1075,7 @@ const App = ({ page, updatePage, formData, updateFormData }) => {
               <Button
                 color="var(--color-dark-blue)"
                 onClick={() => updatePage(page + 1)}
-                message={t("summary")}
+                message={t("done")}
               />
             </div>
           </Layout>
