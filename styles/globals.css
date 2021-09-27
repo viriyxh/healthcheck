@@ -1,14 +1,21 @@
 @import url("https://fonts.googleapis.com/css2?family=Krub:ital,wght@0,600;1,400&display=swap");
 :root {
-  --color-pink: #F59689;
-  --color-blue: #1D4C9E;
-  --color-green: #17A589;
+  --color-black: #212529;
+  --color-white: #f8f9fa;
+  --color-pink: #f59689;
+  --color-blue: #1d6f9e;
+  --color-dark-blue: #1d4c9e;
+  --color-green: #19bd58;
+  --color-light-green: #c6e74e;
+  --color-dark-green: #17a589;
+  --color-orange: #e29a15;
 }
 html,
 body {
   padding: 0;
   margin: 0;
   font-family: "Krub", Helvetica Neue, sans-serif;
+  transition: background 0.5s;
 }
 a {
   color: inherit;
@@ -36,8 +43,8 @@ button {
   border: 0px none;
   border-radius: 1rem;
   background-color: var(--color-pink);
-  color: #ffffff;
-  padding: 0.5rem 3rem;
+  color: var(--color-white);
+  padding: 0.5rem 4rem;
   font-size: 1.25rem;
 }
 .card {
@@ -45,4 +52,17 @@ button {
   border: 3px solid;
   border-radius: 2rem;
   padding: 1rem;
+}
+.choiceList {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  font-size: 1.5rem;
+}
+.choiceSelect {
+  border: 3px solid;
+  border-radius: 2rem;
+  background-color: var(--color-white);
+  padding: 0.5rem 3rem;
+  cursor: pointer;
 }

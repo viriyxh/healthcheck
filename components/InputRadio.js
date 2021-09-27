@@ -1,8 +1,8 @@
 const InputRadio = ({ label, items, name, onChangeHandler }) => {
   return (
     <div className="pb-3 row align-items-center">
-      <span className="col-sm-3 col-form-label">{label}</span>
-      <div className="col-sm-9">
+      <span className="col-sm-4 col-form-label">{label}</span>
+      <div className="col-sm-8">
         <div>
           {items.map((item) => {
             return (

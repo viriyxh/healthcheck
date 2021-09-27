@@ -1,10 +1,10 @@
 const Input = ({ label, type, id, color, onChangeHandler }) => {
   return (
     <div className="pb-3 row align-items-center">
-      <label htmlFor={id} className="col-sm-3 col-form-label">
+      <label htmlFor={id} className="col-6 col-sm-4 col-form-label">
         {label}
       </label>
-      <div className="col-sm-9">
+      <div className="col-6 col-sm-8">
         <input
           type={type}
           id={id}
